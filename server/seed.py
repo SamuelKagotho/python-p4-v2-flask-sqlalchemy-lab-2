@@ -5,9 +5,13 @@ from models import db, Customer, Review, Item
 
 with app.app_context():
 
+    print('deleting previous data')
+
     Customer.query.delete()
     Review.query.delete()
     Item.query.delete()
+
+    print('seeding!!!')
 
     customer1 = Customer(name='Tal Yuri')
     customer2 = Customer(name='Raha Rosario')
@@ -32,3 +36,5 @@ with app.app_context():
     db.session.add(Review(comment="cable too short",
                    customer=customer3, item=item3))
     db.session.commit()
+
+    print('seeding complete!!')
